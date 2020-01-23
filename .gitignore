@@ -1,0 +1,10 @@
+# gitignore whitelist has been implemented
+#   everything is ignored by default
+#   use !<pattern> to include
+
+*
+!**/.gitignore
+
+# Allowing the following directories
+
+# Allowing the following files
