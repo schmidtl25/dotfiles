@@ -2,10 +2,4 @@
 #   everything is ignored by default
 #   use !<pattern> to include
 
-*
-!**/.gitignore
-
-# Allowing the following directories
-!emacs.d/
-
-# Allowing the following files
+!*.el
