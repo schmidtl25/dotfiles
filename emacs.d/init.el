@@ -2,6 +2,11 @@
 ;; Global extras
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; Jan24-20 attempt to fix copy-paste with xterm problem
+(setq x-select-enable-primary t)  ; stops killing/yanking interacting with primary X11 selection
+(setq x-select-enable-clipboard t)  ; makes killing/yanking interact with clipboard X11 selection
+(global-set-key (kbd "<mouse-2>") 'clipboard-yank)
+(delete-selection-mode)
 
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\M-R" 'revert-buffer)
@@ -10,8 +15,8 @@
 (global-set-key [f11] 'cpplint-after-save-hook)
 
 (setq c-default-style '((java-mode . "java")
-			(awk-mode . "awk")
-			(other . "bsd")))
+                        (awk-mode . "awk")
+                        (other . "bsd")))
 (setq c-basic-offset 2)
 (setq-default indent-tabs-mode nil)
 
@@ -82,7 +87,7 @@ and set the focus back to Emacs frame"
   )
 
 (add-to-list 'compilation-finish-functions
-	     'notify-compilation-result)
+             'notify-compilation-result)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
