@@ -1,7 +1,7 @@
 PREFIX=$(HOME)
 
 ALL_FILES = $(wildcard *)
-EXCLUDED_FILES = Makefile README.md
+EXCLUDED_FILES = Makefile README.md $(wildcard \#)
 
 FILTERED_FILES = $(filter-out $(EXCLUDED_FILES),$(ALL_FILES))
 DOT_FILES = $(addprefix $(PREFIX)/.,$(FILTERED_FILES))
@@ -18,7 +18,13 @@ DIRS += $(BACKUP_DIR)
 .PHONY : backup
 backup : $(BACKUP_FILES)
 $(BACKUP_DIR)/.% : $(PREFIX)/.% | $(BACKUP_DIR)
-	cp -r $< $@
+	@if [[ -L $< ]]; \
+	then \
+	  echo "Skipping slink '$< -> `readlink $<`'"; \
+	else \
+	  echo "Copying $< to $@"; \
+	  cp -r $< $@; \
+	fi
 else
 .PHONY : install
 install : $(DOT_FILES)
