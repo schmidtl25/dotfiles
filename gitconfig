@@ -1,0 +1,33 @@
+[user]
+	name = Louis Schmidt
+	email = schmidtl@us.ibm.com
+[push]
+	recurse-submodules = on-demand
+[fetch]
+	prune = true
+	all = true
+	tags = true
+	recurse-submodules = on-demand
+[difftool]
+	path = /usr/bin/kompare
+	prompt = false
+[diff]
+	tool = tkdiff
+        prompt = false
+	guitool = tkdiff
+# [alias]
+#        branch-prune = fetch -p && for branch in `git branch -vv | grep ': gone]' | gawk '{print $1}'`; do git branch -D $branch; done
+
+# [filter "indent"]
+# 	clean = indent
+# 	smudge = cat
+
+[core]
+	lintcheck = true
+        printlint = true
+	warningscheck = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

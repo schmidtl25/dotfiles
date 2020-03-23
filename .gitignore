@@ -10,3 +10,9 @@
 
 # Allowing the following files
 !Makefile
+!bash_profile
+!bashrc
+!profile
+!tmux.conf
+!Xresources
+!gitconfig

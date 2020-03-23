@@ -1,0 +1,1 @@
+[ -r "$HOME/.profile.ibm" ] && source $HOME/.profile.ibm

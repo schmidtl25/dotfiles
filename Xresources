@@ -1,0 +1,1099 @@
+! No Click-to-type.
+OpenWindows.SetInput:           followmouse
+
+! GNU Emacs specific settings
+emacs*cursorColor      : white
+emacs*pointerColor     : yellow
+emacs*Bar*Color         : black
+emacs*font             : 6x13
+emacs*geometry         : 150x62+275+35
+!emacs*autoraise       : true
+!emacs*paneFont        : 7x13
+!emacs*selectionFont   : 7x13
+!emacs*foreground       : oldlace
+emacs*foreground       : white
+emacs*background       : black
+emacs*BitmapIcon       : on
+!Emacs*background:	black
+!Emacs*foreground:	white
+
+! xterm
+xterm*foreground: rgb:a8/a8/a8
+xterm*background: rgb:00/00/00
+xterm*ScrollBar:        on
+xterm*saveLines: 10000
+xterm*disallowedWindowOps: 20,21,SetXProp
+! Jan24-20 this breaks copy-paste between windows/xterm, do not use
+xterm*selectToClipboard: true
+
+! HDWB settings
+Eclipse*foreground: rgb:a8/a8/a8
+Eclipse*background: rgb:00/00/00
+Eclipse*spacing:0
+Eclipse*XmForm.background:white
+Eclipse*XmList.background:white
+Eclipse*XmTextField.background:white
+! Motif fixes for cut and paste
+*XmText.translations: #override\n\
+	Ctrl<Key>c: copy-clipboard()\n\
+	Ctrl<Key>v: paste-clipboard()\n\
+	Ctrl<Key>x: cut-clipboard()\n
+*XmTextField.translations: #override\n\
+	Ctrl<Key>c: copy-clipboard()\n\
+	Ctrl<Key>v: paste-clipboard()\n\
+	Ctrl<Key>x: cut-clipboard()\n
+Eclipse*Font: rom6
+Eclipse*fontList: rom8
+
+!  controls the space between and around widgets
+Eclipse*XmTextField*marginHeight: 1
+Eclipse*XmTextField.marginWidth: 0
+Eclipse*XmPushButton*marginHeight: 0
+Eclipse*XmToggleButton*marginHeight: 0
+Eclipse*XmCheckBox*marginHeight: 0
+Eclipse*XmPushButton*shadowThickness: 1
+Eclipse*XmToggleButton*shadowThickness: 0
+
+! aixterm - maybe not needed anymore?
+!aixterm*charClass:              33:48,37:48,45-47:48,64:48,42:48,43:48
+!aixterm.activeIcon: true
+!aixterm.allowIconInput: true
+!aixterm.autoRaise: false
+!aixterm.autoRaiseDelay: 1.5
+!aixterm.background: royalblue3
+!aixterm.background: dark slate blue
+!aixterm.background: grey34
+!aixterm.background: black
+!aixterm.foreground: white
+!aixterm.boldFont: Erg14
+!aixterm.boldFont: Bld14.500
+!aixterm.boldFont: Rom14.50 
+!aixterm.pointerColor: green yellow
+!aixterm.borderColor: pink
+!aixterm.borderWidth: 2
+!aixterm.c132: false
+!aixterm.curses: false
+!aixterm.cursorColor: red
+!aixterm.deiconifyWarp: false
+!aixterm.font: Rom14.50
+!aixterm.font: 9x15
+!aixterm.font: Rom8
+!aixterm.geometry: 120x40-0-0
+!aixterm.geometry: 160x50-0-0
+!aixterm.iconBitmap:
+!aixterm.iconFont: Rom6.500
+!aixterm.iconGeometry:
+!aixterm.iconStartup: false
+!aixterm.internalBorder: 2
+!aixterm.jumpScroll: false
+!aixterm.logfile: XtermLog.XXXX
+!aixterm.logging: false
+!aixterm.logInhibit: false
+!aixterm.marginBell: false
+!aixterm.nMarginBell: 10
+!aixterm.pageOverlap: 1
+!aixterm.pageScroll: false
+!aixterm.pointerShape: XC_X_cursor
+!aixterm.pointerShape: XC_trek
+!aixterm.pointerShape: XC_star
+!aixterm.pointerShape: XC_pirate
+!aixterm.reverseVideo: false
+!aixterm.reverseWrap: true
+!aixterm.saveLines: 900
+!aixterm.scrollBar: true
+!aixterm.scrollInput: true
+!aixterm.scrollKey: true
+!aixterm.statusLine: false
+!aixterm.statusNormal: false
+!aixterm.textUnderIcon: true
+!aixterm.title: !aixterm
+!aixterm.titleBar: true
+!aixterm.titleFont: Rom14.500
+!aixterm.visualBell: true
+!aixterm.vt102: false
+!aixterm.warp: false
+!aixterm*font: 9x15
+!aixterm*FontSet: 9x15 
+
+
+! Jan24-20 Old AIX stuff (I think)
+!
+! mwm
+!
+! Mwm*pointerShape: XC_trek
+! Mwm*clientAutoPlace:True
+! Mwm*focusAutoRaise:True
+! Mwm*fadeNormalIcon:True
+! Mwm*topShadowColor:LightGrey
+! Mwm*bottomShadowColor:DimGrey
+! Mwm*activeTopShadowColor:LightGrey
+! Mwm*activeBottomShadowColor:DarkGrey
+! Mwm*menu*Foreground:NavyBlue
+! Mwm*menu*Background:Black
+! !Mwm*fontList:-adobe-utopia-regular-r-normal--19-140-100-100-p-105-iso8859-1
+! Mwm*fontList:-adobe-utopia-regular-r-normal--14-100-100-100-p-75-iso8859-1
+! Mwm*menu*fontList:-adobe-utopia-regular-r-normal--17-120-100-100-p-91-iso8859-1
+! Mwm*icon*fontList:-adobe-utopia-regular-r-normal--14-100-100-100-p-75-iso8859-1
+! Mwm*menu*highlightThickness:5
+! Mwm*systemButtonClick:True
+! Mwm*frameBorderWidth:5
+! Mwm*bitmapDirectory:"/usr/include/X11/bitmaps"
+! Mwm*buttonBindings: DefaultButtonBindings
+! Mwm*deiconifyKeyFocus:True
+! Mwm*highlightOnEnter:True
+! Mwm*highlightThickness:5
+! Mwm*iconBoxGeometry:=2x8+0+65
+! Mwm*iconImageMaximum:50x50
+! Mwm*iconGeometry:201x19+0+0
+! !Mwm*iconDecoration: activelabel
+! Mwm*keyBindings: DefaultKeyBindings
+! Mwm*traversalOn:True
+! Mwm*useIconBox:True
+! Mwm*windowMenu: DefaultWindowMenu
+! Mwm*colormapFocusPolicy:pointer
+! Mwm*keyboardFocusPolicy:pointer
+! Mwm*icon*clientDecoration: +none
+! Mwm*facebiff*clientDecoration: +none
+! Mwm*Xviewaet*clientDecoration: -none
+! Mwm*XDiary*clientDecoration: +resize +minimize
+! Mwm*callup*clientDecoration: -resize +minimize +title
+! Mwm*xns*MessageDialog*clientDecoration: +none
+! Mwm*xclock.clientDecoration: +title +minimize
+! Mwm*xload.clientDecoration: +none
+! Mwm*Xperfmon.clientDecoration: +title +minimize
+! Mwm*Xbricons.clientDecoration: +none
+! Mwm*Xfbrows.clientDecoration: +none
+! Mwm*xtartan.clientDecoration: +maximize
+! Mwm*Xman.clientDecoration: +maximize
+! Mwm*Xfract*clientDecoration: -title
+! Mwm*dayEditor*clientDecoration: -resize -maximize
+! Mwm*xant*clientDecoration: -resize -maximize
+! Mwm*Calendar*clientDecoration: -title
+! Mwm*Mail*clientDecoration: +none
+! Mwm*Xbaff.clientDecoration: +none
+! Mwm*xcolors.clientDecoration: +title
+! Mwm*WingZ.clientDecoration: +title
+! Mwm*Xwho.clientDecoration: +title +minimize
+! Mwm*xvier.clientDecoration: +title +minimize
+! Mwm*xmandel.clientDecoration: +title +minimize
+! Mwm*Xping*clientDecoration: +title +minimize
+! Mwm*Load.menu*clientDecoration: +none
+! Mwm*Xclock*matteWidth:50
+! Mwm*pcsim*WindowMenu: NoAccWindowMenu
+! Mwm*activeBackground: red
+! !
+! ! Mlock
+! !
+! mlock*foreground: white
+! mlock*background: blue
+! mlock.geometry: =+500+400
+! mlock.hide: TRUE
+!
+
+!
+! facebiff
+!
+!facebiff*geometry: =+950-0
+
+!=====================================================================
+! Xls Defaults
+!=====================================================================
+!Xls*XmRowColumn*fontList:	ncen12
+!Xls*fileNameFont:		ncen12
+!Xls*linkNameFont:		ncen12
+!Xls*eXeNameFont:		ncen12
+!Xls*dirNameFont:		ncen12
+!Xls*LongAttrFont:		ncen12
+
+! Xls*Structure*:			tree
+! Xls*truct*:			tree
+! !Xls*foreground:			white
+! !Xls*background:			black
+! Xls*Format:			list
+! Xls*listTreeColumns:		2
+! Xls*listTreeRows:		30
+! !Xls*ListShowIcon:		true
+! Xls*longTreeColumns:		2
+! Xls*longTreeRows:		30
+! !Xls*LongShowIcon:		FALSE
+! !Xls*UseLinkAttr:                true
+! Xls*geometry:			+0+125
+! !
+! ! xpipeman
+! !
+! !xpipeman*fontList:     Rom17.500
+! !xpipeman*foreground:   Blue
+! !xpipeman*background:   Wheat
+! !
+! ! xwho
+! !
+! Xwho*fontList:     Rom11.500
+! !Xwho*foreground:   Wheat
+! !Xwho*background:   SteelBlue
+! !Xwho*name.foreground:   Wheat
+! !Xwho*line.foreground:   Yellow
+! !Xwho*time.foreground:   Yellow
+! !Xwho*host.foreground:   Wheat
+! !Xwho*name.background:   SteelBlue
+! !Xwho*line.background:   Tan
+! !Xwho*time.background:   Tan
+! !Xwho*host.background:   SteelBlue
+! !
+! ! pcsim
+! !
+! pcsim*font:Rom22.500
+! pcsim*geometry:=1020x980+0+0
+! pcsim*iconGeometry:=10x10+0+0
+! pcsim*iconName:PCSIM
+! pcsim*name:pcsim
+! pcsim*warp:true
+! pcsim*autoRaise:true
+! !
+! ! BROWSER
+! !
+! browser*PrintScreenCmd:         /:/home/aspencer/utils/bin/xprint
+! browser*CaptInputFile:          ACMOSCAP.eter
+! !browser*titlefontList:          Rom17.500
+! browser*ExUPI:                  /u/aspencer/bin/etex
+! browser*DefaultEqFile:          /u/rs2fxu/dadb/c4s.eqn
+! appContext.geometry:            -0-0
+! browser*TexScope.geometry:      +0+525
+! MainTracer.geometry:            -0-0
+! MainTracer*fontList:            9x15
+! SlackTracer*foreground:         white
+! !SlackTracer*background:         slate blue
+! SlackTracer.geometry:           +0-0
+! SlackTracer*fontList:           fixed
+! !SlackTracer*foreground:         white
+! !SlackTracer*background:         slate blue
+! !browser*SelectColor:            red
+! browser*DefaultRtr:             color placement
+! browser*DrawFont:               9x15
+! !browser*DrawBackground:  black
+! !browser*DrawForeground:  yellow
+! browser.Beep:                   false
+! browser.TraceVisibleCnt:        23
+! browser*geometry:               =1200x500+0+0
+! browser*labelfontList:          Rom10.500
+! browser*Font:                   Rom10.500
+! browser*fontList:               Rom10.500
+! browser*bodyFont:               Rom10.500
+! browser*menuCursor:             sb_v_double_arrow
+! browser*WaitCursor:             watch
+! !browser*WaitCursorColor:        red
+! browser*TwoPressCursor:         circle
+! !browser*TwoPressCursorColor:    white
+! browser*BoxCursor:              dotbox
+! !browser*BoxCursorColor:         red
+! browser*NormCursor:             sailboat
+! !browser*NormCursorColor:        sky blue
+! !browser*EteNormColor:    sky blue
+! !browser*EteHiliteColor:  yellow
+! !browser*PT2PT_ProtoColor yellow
+! !browser*PT2PT_FdbkColor  yellow
+! !browser*DriverColor      yellow
+! browser.MainOutFile:     ete.timing
+! !*PlaceColor0:            white
+! !*PlaceColor0:            black
+! !*PlaceColor1:            light gray
+! !*PlaceColor2:            thistle
+! !*PlaceColor3:            coral
+! !*PlaceColor4:            medium orchid
+! !*PlaceColor5:            gold
+! !*PlaceColor6:            sky blue
+! !*PlaceColor7:            plum
+! !*PlaceColor8:            wheat
+! !
+! ! texscope
+! !
+! !texscope*background:       dark olive green
+! !texscope*foreground:       gold
+! !texscope*CursorForeground: green
+! texscope*Font:             Rom11.500
+!
+!--------------------------------------------------------------------
+!  xcdb
+!xcdb.Edit:!aixterm -n $EDITOR -fn Rom14.500 -bg SlateBlue -fg Wheat -e $EDITOR %s
+!xcdb.SpecialLayout:yes
+!xcdb.Geometry:957x846+39+95
+!xcdb.Callers.Geometry:140x207+532+8
+!xcdb.Callers.IconGeometry:128x19+0+0
+!xcdb.Callers.IconifyOk:no
+!xcdb.Callers.IconStartup:no
+!xcdb.Callers.Scrollbars:none
+!xcdb.Files.Geometry:127x360+817+8
+!xcdb.Files.IconGeometry:128x19+0+0
+!xcdb.Files.IconifyOk:no
+!xcdb.Files.IconStartup:no
+!xcdb.Files.Scrollbars:none
+!xcdb.Breakpoints.Geometry:272x112+532+255
+!xcdb.Breakpoints.IconGeometry:128x19+0+0
+!xcdb.Breakpoints.IconifyOk:no
+!xcdb.Breakpoints.IconStartup:no
+!xcdb.Breakpoints.Scrollbars:none
+!xcdb.Commands.Geometry:117x207+687+8
+!xcdb.Commands.IconGeometry:128x19+0+0
+!xcdb.Commands.IconifyOk:no
+!xcdb.Commands.IconStartup:no
+!xcdb.Commands.Scrollbars:none
+!xcdb.Listing.Geometry:934x429+10+378
+!xcdb.Listing.IconGeometry:128x19+0+0
+!xcdb.Listing.IconifyOk:no
+!xcdb.Listing.IconStartup:no
+!xcdb.Listing.Scrollbars:vertical
+!xcdb.Locals.Geometry:509x360+10+8
+!xcdb.Locals.IconGeometry:128x19+0+0
+!xcdb.Locals.IconifyOk:no
+!xcdb.Locals.IconStartup:no
+!xcdb.Locals.Scrollbars:none
+!xcdb.Externals.Geometry:506x483+98+111
+!xcdb.Externals.IconGeometry:272x19+0+0
+!xcdb.Externals.IconifyOk:yes
+!xcdb.Externals.IconStartup:yes
+!xcdb.Externals.Scrollbars:vertical
+!xcdb.Formats.Geometry:201x364+336+141
+!xcdb.Formats.IconGeometry:201x19+0+0
+!xcdb.Formats.IconifyOk:no
+!xcdb.Formats.IconStartup:no
+!xcdb.Formats.Scrollbars:none
+!xcdb.Messages.Geometry:934x19+10+818
+!xcdb.Messages.IconGeometry:127x19+0+0
+!xcdb.Messages.IconifyOk:no
+!xcdb.Messages.IconStartup:no
+!xcdb.Messages.Scrollbars:none
+!--------------------------------------------------------------------
+!  cmon                 CPU Monitor Program
+! cmon.interval:          5
+! cmon.speedo:            on
+! cmon.speedo.sio:        on
+! cmon.barchart:          on
+! cmon.barchart.sio:      on
+! !cmon.speedo.sio.geometry:
+! !cmon.speedo.cpu.geometry:
+! !cmon.barchart.sio.geometry:
+! !cmon.barchart.cpu.geometry:
+! cmon.font:              Rom11.500
+! !cmon.foreground:
+! !cmon.background:
+! !cmon.bordercolor:
+! !cmon.idlecolor:
+! !cmon.usercolor:
+! !cmon.kernelcolor:
+! !--------------------------------------------------------------------
+! !  pccim
+! Mwm*pcsim*windowMenu:NoAccWindowMenu
+! pcsim.geometry:=720x480
+! pcsim.iconBitmap:pcsim
+! pcsim.iconGeometry:=10x10
+! pcsim.iconName:PCSIM
+! pcsim.name:pcsim
+! pcsim.warp:true
+! pcsim.autoRaise:true
+! !--------------------------------------------------------------------
+! !
+! !   xrn - X window remote news reader
+! !
+! !
+! !
+! !
+! !xrn*font:               Erg14.500
+! xrn.newsrcFile:         ~/.newsrc
+! xrn.nntpServer:         awdprime
+! !xrn.editorCommand:     !aixterm -geometry 80x33 -e e3 %s
+! !xrn.iconGeometry:      +64+521
+! xrn.leaveHeaders:       subject,from,date,keywords,summary,organization
+! xrn.Gripe.geometry:     +50+50
+! !
+! !xrn.ngButtonList: ngQuit,ngRead,ngCatchUp,ngGoto,ngRescan,ngSubscribe,ngPost,ngGripe,ngAllGroups
+! !xrn.artButtonList: artQuit,artNextUnread,artNext,artPrev,artCatchUp,artPost,artGripe,artNextGroup
+! !
+! !xrn*background:                 LightGrey
+! !xrn*foreground:                 Black
+! xrn*font:                       9x15
+! !rn*font:                       Erg14.500
+! xrn*border:                     LightGray
+! !
+! xrn*Text*background:            Navy
+! xrn*Text*foreground:            White
+! xrn*Text*Background:            Black
+! xrn*Text*Foreground:            White
+! xrn*ScrollBarMgr.thickness:     22
+! xrn*ScrollBar.background:       Black
+! xrn*ScrollBar.foreground:       LightGrey
+! xrn*ScrollBar.border:           White
+! xrn*Label.background:           pink
+! xrn*Label.foreground:           Black
+! xrn*Label.font:                 Erg14.500
+! xrn*Command.foreground:         Black
+! xrn*Command.background:         DarkTurquoise
+! xrn*Command.font:               Rom11.500
+! xrn*Box.ngQuit.foreground:      Black
+! xrn*Box.ngQuit.background:      red
+! xrn*Box.ngExit.foreground:      yellow
+! xrn*Box.ngExit.background:      orange
+! xrn*Box.ngRescan.foreground:    cyan
+! xrn*Box.ngRescan.background:    violet
+! xrn*Box.ngUnsub.foreground:     green
+! xrn*Box.ngUnsub.background:     blue
+! xrn*Box.ngSubscribe.foreground: blue
+! xrn*Box.ngSubscribe.background: green
+! xrn*Box.artQuit.foreground:     Black
+! xrn*Box.artQuit.background:     red
+! xrn*Box.artSave.foreground:     yellow
+! xrn*Box.artSave.background:     LimeGreen
+! xrn*Box.artNextUnread.font:     8x13bold
+! xrn*Box.addQuit.foreground:     Black
+! xrn*Box.addQuit.background:     red
+! !
+! xrn*dialog*font:                Rom14.500
+! xrn*dialog*background:          LimeGreen
+! xrn*dialog*foreground:          CornflowerBlue
+! xrn*dialog*Label.foreground:    NavyBlue
+! xrn*dialog*Command.foreground:  Black
+! xrn*dialog*Command.background:  yellow
+! xrn*dialog*Text.background:     Wheat
+! xrn*dialog*Text.foreground:     SteelBlue
+! xrn*dialog*borderWidth:         2
+! !
+! xrn.confirmBox:                 off
+! xrn.signatureFile:              ~/.signature
+! xrn.geometry:                   =750x800
+! xrn.deadLetters:                ~/dead.letters
+! xrn.savePostings:               ~/Articles
+! xrn.topLines:                   9
+! xrn.saveMode:                   mailbox,headers
+! xrn.minLines:                   3
+! xrn.maxLines:                   6
+! xrn.tmpDir:                     /tmp
+! xrn.mailer:                     /usr/lib/sendmail -oi -t
+! xrn.organization:               IBM RISC System/6000 Division
+!xrn.replyTo:                    aspencer@inetnode.austin.ibm.com
+! xdiff
+!
+! xdiff*text.fontList:            Rom11.500
+! XDesktop*pictureDirectory :  /usr/include/X11/bitmaps/xdt_i_large  /usr/include/X11/bitmaps/xdt_c_large
+! !
+! ! xant
+! !
+! !xant*adapter:                  0
+! xant*autoRaise:                off
+! !xant*backColor:                grey
+! xant*background:               aquamarine
+! xant*boldFont:                 Bld14.500
+! xant*boldZoomFont:             Bld14.500
+! !xant*borderColor:              black
+! xant*borderWidth:              1
+! xant*bracket:                  on
+! xant*cols:                     80
+! !xant*cursor:                   left_ptr
+! xant*cursor:                   trek
+! xant*cursorColor:              yellow
+! xant*deIconifyWarp:            on
+! !xant*drawColor:                black
+! !xant*extBlue:                  blue
+! !xant*extDefIntense:            black
+! !xant*extDefault:               black
+! !xant*extGreen:                 red
+! !xant*extPink:                  black
+! !xant*extRed:                   red
+! !xant*extTurquoise:             black
+! !xant*extWhite:                 yellow
+! !xant*extYellow:                blue
+! xant*extended:                 on
+! xant*font:                     9x15
+! !xant*foreColor:                black
+! !xant*foreground:               black
+! xant*gaCursor:                 crosshair
+! !xant*gaSupport:                on
+! !xant*gaTranslations:           none
+! !xant*gateway:                  none
+! !xant*ga3270.backColor:         #116
+! !xant*ga3270.width:             768
+! !xant*ga3270.height:            600
+! !xant*geometry:                 80x43
+! xant*graphics:                 on
+! !xant*graphics.geometry:        +40+24
+! xant*iconFont:                 Rom8.500
+! !xant*iconGeometry:             +0+0
+! xant*iconic:                   off
+! !xant*imTranslations:           none
+! xant*keyfile:                  /u/jamieson/xant.keys
+! xant*MenuBtn.Background:       aquamarine
+! xant*MenuBtn.Font:             Rom10.500
+! xant*mouseColor:               yellow
+! !xant*piColor:                  blue
+! !xant*pnColor:                  black
+! !xant*port:                     23
+! xant*pvm:                      off
+! !xant*refreshColor:             navy blue
+! xant*reverseVideo:             off
+! xant*rows:                     43
+! !xant*secondary:                none
+! xant*specialCursor:            hand1
+! xant*speckey:                  on
+! xant*title:                    Host Session
+! !xant*translations:             none
+! xant*tune:                     NULL
+! !xant*uiColor:                  red
+! !xant*unColor:                  steel blue
+! xant*warp:                     on
+! xant*wmTitle:                  on
+! xant*workstation:              hostname
+! !xant*x3270.font:               Rom22.500
+! !xant*x3270.boldFont:           Rom22.500
+! !xant*x3270.zoomFont:           Rom10.500
+! !xant*x3270.boldZoomFont:       Rom10.500
+! !xant*zoom:                     off
+! !xnt*zoomFont:                 Rom22.500
+! xant*autoRaiseDelay: 1.5
+! 
+! !
+! ! Xcalendar
+! !
+! XCalendar*helpFile:             /usr/lpp/X11/Xamples/demos/internet/xcalendar/xcalendar.hlp
+! XCalendar*Font:                 8x13
+! XCalendar*Geometry:             -000+000
+! XCalendar*Background:           wheat
+! XCalendar*BorderWidth:          2
+! XCalendar*calendar*borderWidth: 0
+! XCalendar*controls*borderWidth: 0
+! XCalendar*date*font:            8x13bold
+! XCalendar*date*borderWidth:     0
+! XCalendar*daynames*font:           8x13
+! XCalendar*daynames*Background:     LightBlue
+! XCalendar*daynames.SUN*Foreground: Red
+! XCalendar*daynames.SAT*Foreground: SlateBlue
+! XCalendar*daynumbers.1*Foreground:  Red
+! XCalendar*daynumbers.8*Foreground:  Red
+! XCalendar*daynumbers.15*Foreground: Red
+! XCalendar*daynumbers.22*Foreground: Red
+! XCalendar*daynumbers.29*Foreground: Red
+! XCalendar*daynumbers.36*Foreground: Red
+! XCalendar*daynumbers.7*Foreground:  SlateBlue
+! XCalendar*daynumbers.14*Foreground: SlateBlue
+! XCalendar*daynumbers.21*Foreground: SlateBlue
+! XCalendar*daynumbers.28*Foreground: SlateBlue
+! XCalendar*daynumbers.35*Foreground: SlateBlue
+! XCalendar*controls*helpButton*Background: DarkGreen
+! XCalendar*controls*helpButton*Foreground: wheat
+! XCalendar*controls*quitButton*Background: DarkGreen
+! XCalendar*controls*quitButton*Foreground: wheat
+! XCalendar*daynumbers*Foreground:                DarkGreen
+! XCalendar*editorTitle*Background:               PaleGreen
+! XCalendar*editorTitle*Foreground:               Red
+! XCalendar*editorControls*Background:            PaleGreen
+! XCalendar*editorControls*doneButton*Background: Red
+! XCalendar*editorControls*doneButton*Foreground: wheat
+! XCalendar*editorControls*saveButton*Background: Red
+! XCalendar*editorControls*saveButton*Foreground: wheat
+! XCalendar*editorControls*clearEntry*Background: DarkGreen
+! XCalendar*editorControls*clearEntry*Foreground: wheat
+! XCalendar*dayEditor*geometry: 400x200
+! XCalendar*dayEditor*editorTitle*font: 8x13bold
+! XCalendar*dayEditor*editorTitle*Foreground: DarkGreen
+! XCalendar*helpWindow*geometry: 700x350
+! XCalendar*helpWindow*editorTitle*font: 8x13bold
+! XCalendar*doneButton*Label:  done
+! XCalendar*editorTitle*Label: Help
+! XCalendar*helpButton*Label:  help
+! XCalendar*quitButton*Label:  quit
+! XCalendar*saveButton*Label:  save
+! XCalendar*firstDay: 7
+! XCalendar*markBackground:    Thistle
+! XCalendar*setMarkBackground: True
+! !
+! ! xcalc
+! !
+! XCalc.Foreground:      Black
+! XCalc.Background:      LightSteelBlue
+! !XCalc.KeyFont:         Rom17.500
+! XCalc.DisplayFont:     Rom22.500
+! XCalc.FlagFont:        Rom10.500
+! XCalc.NKeyFore:        White
+! XCalc.NKeyBack:        NavyBlue
+! XCalc.OKeyFore:        Aquamarine
+! XCalc.OKeyBack:        DarkGray
+! XCalc.FKeyFore:        White
+! XCalc.FKeyBack:        !900
+! XCalc.DispFore:        Yellow
+! XCalc.DispBack:        Blue
+! XCalc.IconFore:        Red
+! XCalc.IconBack:        White
+! !
+! ! xclock
+! !
+! xclock.mode:a
+! xclock.border:NavyBlue
+! xclock.hands:red
+! xclock.highlight:black
+! xclock.update:10
+! xclock.bodyFont:Rom8.500
+! xclock.autoRaise:true
+! !
+! ! asxcam
+! !
+! asxcam*iconBitmap:      /afs/apd/local/src/asxcam6k/lib/logo
+! asxcam*geometry:        =80x20
+! asxcam*background:      IndianRed
+! asxcam*foreground:      Black
+!asxcam*font:            Rom17.500
+!
+! !aixterm
+!
+! Translations for the cut buffers to work with Xant.
+!
+!aixterm.translations:  #override \
+!        None<Btn1Up>: select-end(CUT_BUFFER0, PRIMARY)         \n\
+!        None<Btn2Up>: insert-selection(CUT_BUFFER0, PRIMARY)   \n\
+!        None<Btn3Up>: select-end(CUT_BUFFER0, PRIMARY)
+
+
+!
+! !aixterm default for e3 use.
+!
+!e3term*MarginBell:             5
+!e3term*activeIcon:             false
+!e3term*allowIconInput:         false
+!e3term*alwaysHighlight:        true
+!e3term*autoRaise:              false
+!e3term*autoRaiseDelay:         2
+! e3term*background:              CornflowerBlue
+! e3term*foreground:              white
+!e3term*boldFont:               Erg14
+!e3term*c132:                   false
+!e3term*curses:                 false
+! e3term*cursorColor:             green
+!e3term*deiconifyWarp:          true
+!e3term*font:                   Erg14
+!e3term*fullCursor:             true
+!e3term*iconBitmap:             /usr/include/X11/bitmaps/xlogo32
+!e3term*iconFont:               8x13
+!e3term*iconStartup:            false
+!e3term*internalBorder:         3
+!e3term*jumpScroll:             false
+!e3term*logFile
+!e3term*logInhibit:             false
+!e3term*logging:                false
+!e3term*loginShell:             false
+!e3term*marginBell:             false
+!e3term*marginBell:             false
+!e3term*mouse:                  red
+!e3term*multiScroll:            false
+!e3term*pageOverlap:            10
+!e3term*pageScroll:             false
+! e3term*pointerColor:            green
+!e3term*pointerShape:           trek
+!e3term*queuename:              rp0
+!e3term*reverseVideo:           false
+!e3term*reverseWrap:            true
+!e3term*saveLines:              0
+!e3term*scrollBar:              false
+!e3term*scrollInput:            false
+!e3term*scrollKey:              false
+!e3term*scrollPosition
+!e3term*statusLine:             false
+!e3term*statusNormal:           false
+!e3term*textUnderIcon:          true
+!e3term*title:                  e3term
+!e3term*titleBar:               true
+!e3term*titleFont:              8x13
+!e3term*utmpInhibit:            false
+!e3term*visualBell:             false
+!e3term*vt102:                  false
+!e3term*warp:                   true
+!e3term*charClass:              33:48,37:48,45-47:48,64:48
+!
+! !aixterm default for callup use.
+!
+! callup*MarginBell:             5
+! callup*activeIcon:             false
+! callup*allowIconInput:         false
+! callup*alwaysHighlight:        true
+! callup*autoRaise:              false
+! callup*autoRaiseDelay:         2
+! callup*background:             Black
+! callup*foreground:             White
+! callup*boldFont:               -ibm--bold-r-block--23-16-100-100-c-110-ibm-850
+! callup*titleFont:              -ibm--bold-r-block--23-16-100-100-c-110-ibm-850
+! !callup*font:                   -ibm--medium-r-medium--22-15-100-100-c-70-ibm-850
+! callup*font:                   -ibm--bold-r-block--23-16-100-100-c-110-ibm-850
+! !callup*iconFont:              8x13
+! callup*c132:                   false
+! callup*curses:                 false
+! callup*cursorColor:            White
+! callup*deiconifyWarp:          true
+! callup*fullCursor:             false
+! callup*iconBitmap:             /usr/include/X11/bitmaps/xlogo32
+! callup*iconStartup:            false
+! callup*internalBorder:         3
+! callup*jumpScroll:             false
+! callup*logFile:
+! callup*logInhibit:             false
+! callup*logging:                false
+! callup*loginShell:             false
+! callup*marginBell:             false
+! callup*mouse:                  red
+! callup*multiScroll:            false
+! callup*pageOverlap:            10
+! callup*pageScroll:             false
+! callup*pointerColor:           yellow
+! callup*pointerShape:           trek
+! callup*queuename:              rp0
+! callup*reverseVideo:           false
+! callup*reverseWrap:            true
+! callup*saveLines:              0
+! callup*scrollBar:              false
+! callup*scrollInput:            false
+! callup*scrollKey:              false
+! callup*scrollPosition:
+! callup*statusLine:             false
+! callup*statusNormal:           false
+! callup*textUnderIcon:          true
+! callup*title:                  callup
+! callup*titleBar:               false
+! callup*utmpInhibit:            false
+! callup*visualBell:             false
+! callup*vt102:                  false
+! callup*warp:                   true
+! callup*charClass:              33:48,37:48,45-47:48,64:48
+! !
+! ! xbaff
+! !
+! xbaff.delayTime:        5
+! xbaff.threshold:        60
+! xbaff.waitTime:         10
+! xbaff.borderWidth:      15
+! xbaff.bitmapName:
+! xbaff.geometry:         =-0-0
+! xbaff.background:       Wheat
+! xbaff.foreground:       NavyBlue
+! xbaff.border:           SkyBlue
+! xbaff.mailLed:          3
+! xbaff.location:         ne
+! xbaff.ringBell:         True
+! xbaff.garglePaths:      True
+! xbaff.fontName:         9x15
+!
+! ripple
+!
+!
+! XMdemos app-defaults file
+!
+! MainWindow*foreground:                         green
+! MainWindow*background:                         black
+! !MainWindow*fontList:                           Rom17.500
+! !MainWindow*borderWidth:                        2
+! !MainWindow*highlightThickness:                 2
+! !MainWindow*traversalOn:                        true
+! !MainWindow*keyboardFocusPolicy:                explicit
+! MainWindow*menuAccelerator:                    <Key>KP_F2
+! 
+! MainWindow*rowcolMainWindow*orientation:                 VERTICAL
+! MainWindow*rowcolMainWindow*packing:                     PACK_TIGHT
+! MainWindow*bboardMainWindow*width:                       800
+! MainWindow*allowOverlap:                       False
+! 
+! MainWindow*XmFrame.topShadowColor:             red
+! 
+! MainWindow*ModelMainWindow*labelString:                  Model
+! MainWindow*ModelMainWindow*mnemonic:                     M
+! MainWindow*SelectMainWindow*labelString:                 Select Model
+! MainWindow*SelectMainWindow*mnemonic:                    S
+! MainWindow*CopyMainWindow*labelString:                   Copy Model
+! MainWindow*CopyMainWindow*mnemonic:                      C
+! MainWindow*DeleteMainWindow*labelString:                 Delete This Model
+! MainWindow*DeleteMainWindow*mnemonic:                    D
+! MainWindow*MergeMainWindow*labelString:                  Merge Models
+! MainWindow*MergeMainWindow*mnemonic:                     r
+! MainWindow*QuitMainWindow*labelString:                   Quit
+! MainWindow*QuitMainWindow*mnemonic:                      Q
+! MainWindow*ViewMainWindow*labelString:                   View
+! MainWindow*ViewMainWindow*mnemonic:                      V
+! MainWindow*View_ScanMainWindow*labelString:              Scanfiles
+! MainWindow*View_ScanMainWindow*mnemonic:                 S
+! MainWindow*View_SummaryMainWindow*labelString:           Summary File
+! MainWindow*View_SummaryMainWindow*mnemonic:              F
+! MainWindow*View_Any_FileMainWindow*labelString:          Any File
+! MainWindow*View_Any_FileMainWindow*mnemonic:             A
+! 
+! MainWindow*MainWindow_query_dialogMainWindow*okLabelString:  Continue
+! MainWindow*help_dialogMainWindow*okLabelString:          Continue
+! MainWindow*MainWindow_passed_dialog:               Continue
+! 
+! MainWindow*any_editMainWindow*labelString:               Enter filename to edit
+! MainWindow*any_editMainWindow*textString:
+! MainWindow*any_editMainWindow*okLabelString:             OK
+! MainWindow*any_editMainWindow*cancelLabelString:         Cancel
+! MainWindow*any_editMainWindow*helpLabelString:           Help
+! 
+! MainWindow*DefaultsMainWindow*labelString:               Defaults
+! MainWindow*DefaultsMainWindow*mnemonic:                  D
+! 
+! MainWindow*EditorsMainWindow*labelString:                Editor
+! MainWindow*EditorsMainWindow*mnemonic:                   E
+! MainWindow*editorMainWindow*selectionLabelString:        Enter Editor of Choice
+! MainWindow*editorMainWindow*textString:                  e3
+! 
+! MainWindow*Model_DirectoryMainWindow*labelString:        Models Directory
+! MainWindow*Model_DirectoryMainWindow*mnemonic:           M
+! MainWindow*model_dirMainWindow*selectionLabelString:     Enter Models Directory
+! MainWindow*model_dirMainWindow*textString:               /u/richard/work/unitsim/models
+! 
+! MainWindow*Unitsim_DirectoryMainWindow*labelString:      Unitsim Directory
+! MainWindow*Unitsim_DirectoryMainWindow*mnemonic:         U
+! MainWindow*unitsim_dirMainWindow*selectionLabelString:   Enter Unitsim Directory
+! MainWindow*unitsim_dirMainWindow*textString:             /u/richard/work/unitsim
+! 
+! MainWindow*Max_CycleMainWindow*labelString:              Max Cycles
+! MainWindow*Max_CycleMainWindow*mnemonic:                 C
+! MainWindow*max_cyclesMainWindow*selectionLabelString:    Max Number of Cycles
+! MainWindow*max_cyclesMainWindow*textString:              1000000
+! 
+! MainWindow*main_titleMainWindow*labelString:             อออออออออออออออออออออออ Ripple Simulation Tool อออออออออออออออออออออออ
+! 
+! MainWindow*complete_scaleMainWindow*orientation:         HORIZONTAL
+! MainWindow*complete_scaleMainWindow*processingDirection: MAX_ON_RIGHT
+! MainWindow*complete_scaleMainWindow*value:               0
+! MainWindow*complete_scaleMainWindow*sensitive:           false
+! 
+! MainWindow*no_ivpc_labelMainWindow*labelString:          >>>>>>>> Unit Simulation <<<<<<<<
+! MainWindow*ivpc_labelMainWindow*labelString:             >>>>>>>> IVP Definition <<<<<<<<<
+! 
+! MainWindow*select_triggerMainWindow*selectionLabelString:1. Trigger File
+! MainWindow*select_triggerMainWindow*okLabelString:       Edit
+! MainWindow*select_triggerMainWindow*cancelLabelString:   Run Ripple
+! MainWindow*select_triggerMainWindow*helpLabelString:     Help
+! 
+! MainWindow*select_MainWindowMainWindow*selectionLabelString:2. Ripple File
+! MainWindow*select_MainWindowMainWindow*okLabelString:       Edit
+! MainWindow*select_MainWindowMainWindow*cancelLabelString:   Run Ripple
+! MainWindow*select_MainWindowMainWindow*helpLabelString:     Help
+! 
+! MainWindow*IVP_toggleMainWindow*labelString:            Create IVP Event Input File
+! MainWindow*expects_toggleMainWindow*labelString:        Create Expects Scanfile
+! 
+! MainWindow*select_scanfileMainWindow*selectionLabelString:3. Expects Scanfile
+! MainWindow*select_scanfileMainWindow*okLabelString:       Edit
+! MainWindow*select_scanfileMainWindow*cancelLabelString:   Run Ripple
+! MainWindow*select_scanfileMainWindow*helpLabelString:     Help
+! 
+! MainWindow*select_eventMainWindow*selectionLabelString:4. IVP Event Input File
+! MainWindow*select_eventMainWindow*okLabelString:       Edit
+! MainWindow*select_eventMainWindow*cancelLabelString:   Run Ripple
+! MainWindow*select_eventMainWindow*helpLabelString:     Help
+! 
+! MainWindow*select_wrxxxMainWindow*selectionLabelString:5. IVP Event Descriptor File
+! MainWindow*select_wrxxxMainWindow*okLabelString:       Edit
+! MainWindow*select_wrxxxMainWindow*cancelLabelString:   Run Ripple
+! MainWindow*select_wrxxxMainWindow*helpLabelString:     Help
+! 
+! MainWindow*wrfin_fileMainWindow*selectionLabelString:  6. IVP WRFIN Output File
+! MainWindow*wrfin_fileMainWindow*okLabelString:         Edit
+! MainWindow*wrfin_fileMainWindow*helpLabelString:       Help
+! 
+! MainWindow*error_dialogMainWindow*dialogType:          DIALOG_ERROR
+! MainWindow*error_dialogMainWindow*messageString:       Error in Running Ripple
+! MainWindow*error_dialogMainWindow*okLabelString:       Examine Error
+!
+! swatch
+!
+! swatch*log_window.x:  11
+! swatch*log_window.y:  -20
+! swatch*make_note_window.x:  11
+! swatch*make_note_window.y:  27
+! swatch*gripe_form.x:  11
+! swatch*gripe_form.y:  27
+! swatch*comment_to:  brase
+! swatch*comment_machine:  piranha
+! !
+! ! hman
+! !
+! HMan*Hyper*zoomEffect: on
+! HMan*Hyper*zoomSpeed: 10
+! HMan*Hyper*highliteFont: Rom17.500
+! HMan*Hyper*highlightFont: Rom17.500
+! HMan*Hyper*normalFont: Rom14.500
+! HMan*Hyper*highlightColor: red
+! HMan*Hyper*normalColor: black
+! HMan*Hyper*selectColor: blue
+! HMan*Hyper*margin: 5
+! HMan*form.width: 605
+! HMan*form.height: 700
+!
+! FrameMaker
+!
+!Maker.colorDocs:               True
+!Maker.colorImages:             False
+
+!Maker.autoBackupOnSave:        True
+!Maker.autoSave:                True
+!Maker.autoSaveTime:            5
+!Maker.autoSaveIdleTime:        10
+!Maker.greekSize:               7
+
+! Maker.printerName:             qps
+!Maker.paperSizeWidth:          8.5
+!Maker.paperSizeHeight:         11.0
+
+!Maker.penWidths:               0.5,1.0,3.0,4.0
+
+!Maker.zoomPercents:            25,50,100,120,140,150,160,180,200,400
+
+!!if HEIGHT >= 1024
+!Maker.dpi:                     86x86
+!!else /* < 1024 */
+!!if HEIGHT >= 900
+!Maker.dpi:                     72x72
+!!else /* < 900 */
+!Maker.dpi:                     60x60
+!!endif /* >= 900 */
+!!endif /* >= 1024 */
+
+!Maker.uiLanguage:              English
+!Maker.docLanguage:             USEnglish
+
+!Maker.kbmapVendor:             kbmaps/kbmap.<vendor>
+!Maker.kbmapUser:               mykbmap
+!Maker.kbmacrosUser:            kbmacros
+
+!Maker.cmdPrefix:               /Execute
+!Maker.cmdEscape:               True
+!Maker.meta:                    1
+!Maker.oldMouse:                False
+
+!Maker.maxClientBitmaps:        256
+!Maker.clientBitmapSize:        600000
+!Maker.maxServerBitmaps:        128
+!Maker.serverBitmapSize:        1000000
+
+!Maker.doubleClickTenths:       10
+
+!Maker.maxDocuments:            64
+
+!Maker.useBackingStore:         False
+
+!Maker.captureRectColor:        red
+
+!Maker.makerkit.geometry:       322x66+780+0
+
+!Mwm*Maker.ClientDecoration:    all
+
+!Maker*Transient:               False
+
+!Maker.useDps:                  True
+
+! SunView graphics cursors.
+!Maker.Cursor.topleft:          topleft
+!Maker.Cursor.top:              top
+!Maker.Cursor.topright:         topright
+!Maker.Cursor.right:            right
+!Maker.Cursor.bottomright:      botright
+!Maker.Cursor.bottom:           bot
+!Maker.Cursor.bottomleft:       botleft
+!Maker.Cursor.left:             left
+
+
+!Mwm*activeBackgroundPixmap:    /usr/include/X11/bitmaps/tie_fighter
+!Mwm*menu*backgroundPixmap:     False
+!Mwm*iconDecoration:            label activelabel
+!Mwm*iconPlacement:             right bottom
+!Mwm*iconPlacementMargin:       48
+!Mwm*moveThreshold:             4
+!Mwm*resizeCursors:             False
+!Mwm*useIconBox:                False
+
+! Mwm*cleanText:                  True
+! !Mwm*fontList:  -adobe-helvetica-bold-r-normal--12-*-iso8859-1
+! Mwm*positionIsFrame:            False
+! Mwm*saveUnder:                  True
+! 
+! Mwm*DM_output.ClientDecoration: none
+! Mwm*DM_input.ClientDecoration:  none
+! !
+! ! xsermon
+! !
+! xsermon.form.pb6.sensitive: False
+! !
+! ! bricons
+! !
+! *bitmapFilePath: /usr/lpp/X11/include/X11/bitmaps:/afs/apd/local/src/bricons/bitmaps:/afs/apd/local/src/xdtree:/afs/apd/local/src/xsol:/afs/apd/local/src/asxcam6k/lib
+! Xbricons.geometry: +0+0
+! Xbricons*no_of_cols: 6
+! Xbricons*no_of_rows: 3
+! !
+! ! New swatch (xns)
+! !
+! xns.nMainWindow.nMenuBar*nFileMenu*button_0.accelerator:     Ctrl<Key>Q
+! xns.nMainWindow.nMenuBar*nFileMenu*button_0.acceleratorText: Ctrl+Q
+! xns.nMainWindow.nMenuBar*nHelpMenu*button_0.accelerator:     Ctrl<Key>H
+! xns.nMainWindow.nMenuBar*nHelpMenu*button_0.acceleratorText: Ctrl+H
+! xns.nMainWindow.nMenuBar*nHelpMenu*foreground: Red
+! !
+! ! xalarm
+! !
+! !XAlarm*background:                      LightYellow
+! !XAlarm*foreground:                      IndianRed
+! !XAlarm*Command.background:              IndianRed
+! !XAlarm*Command.foreground:              LightYellow
+
+! XAlarm.confirm:                         True
+! XAlarm.warnings:                        5,15
+! XAlarm.warningwords:                    0
+! XAlarm.pester:                          0
+! XAlarm.snooze:                          0
+! XAlarm.volume:                          0
+! XAlarm.alarmaudio:                      bell
+! XAlarm.warningaudio:                    bell
+! 
+! XAlarm*background:                      White
+! XAlarm*foreground:                      Black
+! XAlarm*font:                            -*-times-bold-r-*-*-14-*-*-*-p-*-iso8859-1
+! XAlarm*allowShellResize:                True
+! XAlarm*resizable:                       True
+! 
+! XAlarm*top:                             ChainTop
+! XAlarm*bottom:                          ChainTop
+! XAlarm*left:                            ChainLeft
+! XAlarm*right:                           ChainLeft
+! 
+! XAlarm*Command.background:              Black
+! XAlarm*Command.foreground:              White
+! XAlarm*Command.ShapeStyle:              rectangle
+! XAlarm*Command.cursor:                  hand2
+! XAlarm*Label.justify:                   left
+! XAlarm*Label.cursor:                    question_arrow
+! XAlarm*Text.cursor:                     pencil
+! 
+! XAlarm*quit.label:                      Quit
+! XAlarm*reset.label:                     Reset
+! 
+! XAlarm.Alarm!.alarm.background:                         Black
+! XAlarm.Alarm!.alarm.message.cursor:                     gumby
+! XAlarm.Alarm!.alarm.message.label:                      Alarm Call!!!
+! XAlarm.Alarm!.alarm.message.font:                       -*-times-bold-i-*-*-34-*-*-*-p-*-iso8859-1
+! XAlarm.Alarm!.alarm.message.internalWidth:              10
+! XAlarm.Alarm!.alarm.message.internalHeight:             5
+! XAlarm.Alarm!.alarm.message.bottom:                     ChainBottom
+! 
+! XAlarm.Alarm!.alarm.buttons.snooze.label:               Snooze
+! XAlarm.Alarm!.alarm.buttons.snooze1.label:              +1 min
+! XAlarm.Alarm!.alarm.buttons.snooze5.label:              +5 
+
+! SCOPE_GWV.width:                                   1600
+! SCOPE_GWV.height:                                  800
+! SCOPE_GWV*Panedwindow.NameSW.width:                400
+! SCOPE_GWV*Panedwindow.ValueSW.width:               100
+! SCOPE_GWV*Panedwindow.MeasureSW.width:             400
+! SCOPE_GWV*WAVEHEIGHT:                              8
+! SCOPE_GWV*WAVESPACING:                             5
+! SCOPE_GWV*fullNameTB.set:                          True
+! !SCOPE_GWV*displayModePD.set:                       True
+! !SCOPE_GWV*staySelectedPD.set:                      True
+! SCOPE_GWV*NameSW.paneMinimum:                      40
+! SCOPE_GWV*ValueSW*paneMinimum:                     20
+! SCOPE_GWV*snapToTransition:                         off
+! SCOPE_GWV*staySelectedPD.set: True
+! 
+!----Zephyr-------
+! zwgc.style.stylenames.background:       Black
+
