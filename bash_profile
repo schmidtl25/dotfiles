@@ -3,7 +3,11 @@
 #################################################################
 # source profile #
 #################################################################
-[ -r "$HOME/.profile" ] && source $HOME/.profile
+if [ -r "$HOME/.profile" ]; then
+   echo "sourcing $HOME/.profile"
+   source $HOME/.profile
+   echo "sourced"
+fi
 
 #################################################################
 # source bashrc #
