@@ -2,13 +2,19 @@ PREFIX=$(HOME)
 
 # Get all files from this repo
 ALL_FILES = $(wildcard *)
+BASHRC_FILES = $(wildcard bashrc.d/*.bashrc)
 # Files to exclude
-EXCLUDED_FILES = Makefile README.md $(wildcard \#)
+EXCLUDED_FILES = Makefile README.md $(BASHRC_FILES) $(wildcard \#)
 
 FILTERED_FILES = $(filter-out $(EXCLUDED_FILES),$(ALL_FILES))
 DOT_FILES = $(addprefix $(PREFIX)/.,$(FILTERED_FILES))
 
 DIRS = $(PREFIX)
+
+ifneq ($(BASHRC_FILES),)
+BASHRC_D_FILES =$(addprefix $(PREFIX)/.,$(BASHRC_FILES))
+DIRS += $(HOME)/.bashrc.d
+endif
 
 ifneq ($(filter backup,$(MAKECMDGOALS)),)
 BACKUP_DIR=$(HOME)/backup
@@ -29,7 +35,8 @@ $(BACKUP_DIR)/.% : $(PREFIX)/.% | $(BACKUP_DIR)
 	fi
 else
 .PHONY : install
-install : $(DOT_FILES)
+install : $(DOT_FILES) $(BASHRC_D_FILES)
+
 $(PREFIX)/.% : $(PWD)/% | $(PREFIX)
 	@echo "  slink '$<' -> '$@'"
 	@if [[ -L $@ ]]; then \
@@ -37,6 +44,12 @@ $(PREFIX)/.% : $(PWD)/% | $(PREFIX)
 	fi; \
 	ln -s $< $@;
 
+$(PREFIX)/.bashrc.d/% : $(PWD)/% | $(DIRS)
+	@echo "  slink '$<' -> '$@'"
+	@if [[ -L $@ ]]; then \
+		rm $@; \
+	fi; \
+	ln -sT $< $@
 endif
 
 .PHONY : clean
