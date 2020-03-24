@@ -6,6 +6,7 @@
 !**/.gitignore
 
 # Allowing the following directories
+!bashrc.d/
 !emacs.d/
 
 # Allowing the following files
@@ -13,6 +14,7 @@
 !bash_profile
 !bashrc
 !profile
+!profile.schmidtl
 !tmux.conf
 !Xresources
 !gitconfig

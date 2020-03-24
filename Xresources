@@ -6,7 +6,7 @@ emacs*cursorColor      : white
 emacs*pointerColor     : yellow
 emacs*Bar*Color         : black
 emacs*font             : 6x13
-emacs*geometry         : 150x62+275+35
+!emacs*geometry         : 150x62+275+35
 !emacs*autoraise       : true
 !emacs*paneFont        : 7x13
 !emacs*selectionFont   : 7x13
