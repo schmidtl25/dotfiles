@@ -10,11 +10,13 @@
 !emacs.d/
 
 # Allowing the following files
-!Makefile
 !bash_profile
 !bashrc
+!gitconfig
+!git_prompt.sh
+!git-prompt.sh
+!Makefile
 !profile
 !profile.schmidtl
 !tmux.conf
 !Xresources
-!gitconfig
