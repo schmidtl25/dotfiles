@@ -18,13 +18,36 @@ git_status() {
     # ? untracked files are present
     # S changes have been stashed
     # P local commits need to be pushed to the remote
-    status="$(git status --porcelain 2>/dev/null)"
+
+    local timeout_short=""
+    local timeout_long=""
+    if command -v timeout > /dev/null; then
+        timeout_short="timeout 1s"
+        timeout_long="timeout 1s"
+    fi
+
+    # status="$($timeout_long git status --porcelain 2>/dev/null)"
+    # status="$($timeout_long sleep 5 2>/dev/null)"
+    
+    # status="$($timeout_long git diff --no-ext-diff --quiet || if [ "$?" == "124" ]; then { nohup  git diff --no-ext-diff --quiet >/dev/null 2>&1 & } ;  skip="yes"; w="~"; else w="*"; fi)"
+
+    # could capture git status PID, check if it's still active, and not run another status until it's done
+    status="\
+$($timeout_long git status --porcelain 2>/dev/null || \
+if [ "$?" == "124" ]; then \
+  { nohup git status --porcelain >/dev/null 2>&1 & } ; \
+  echo "~" ; \
+fi)"
+    
     output=''
-    [[ -n $(egrep '^[MADRC]' <<<"$status") ]] && output="$output+"
-    [[ -n $(egrep '^.[MD]' <<<"$status") ]] && output="$output!"
-    [[ -n $(egrep '^\?\?' <<<"$status") ]] && output="$output?"
-    [[ -n $(git stash list) ]] && output="${output}S"
-    [[ -n $(git log --branches --not --remotes) ]] && output="${output}P"
+    [[ -n $(egrep '^~' <<<"$status") ]] && output="$output~"
+    if [[ ! $1 =~ '\~' ]]; then
+        [[ -n $(egrep '^[MADRC]' <<<"$status") ]] && output="$output+"
+        [[ -n $(egrep '^.[MD]' <<<"$status") ]] && output="$output!"
+        [[ -n $(egrep '^\?\?' <<<"$status") ]] && output="$output?"
+        [[ -n $(git stash list) ]] && output="${output}S"
+        [[ -n $(git log --branches --not --remotes) ]] && output="${output}P"
+    fi
     [[ -n $output ]] && output="|$output"  # separate from branch name
     echo $output
 }
@@ -37,17 +60,21 @@ git_color() {
     # - Red if there are uncommitted changes with nothing staged
     # - Yellow if there are both staged and unstaged changes
     # - Blue if there are unpushed commits
+    timedout=$([[ $1 =~ \~ ]] && echo yes)
     staged=$([[ $1 =~ \+ ]] && echo yes)
     dirty=$([[ $1 =~ [!\?] ]] && echo yes)
     needs_push=$([[ $1 =~ P ]] && echo yes)
-    if [[ -n $staged ]] && [[ -n $dirty ]]; then
+
+    if [[ -n $timedout ]]; then
+        echo -e '\033[38;5;214m\033[1m'  # bold orange
+    elif [[ -n $staged ]] && [[ -n $dirty ]]; then
         echo -e '\033[1;33m'  # bold yellow
     elif [[ -n $staged ]]; then
         echo -e '\033[1;32m'  # bold green
     elif [[ -n $dirty ]]; then
         echo -e '\033[1;31m'  # bold red
     elif [[ -n $needs_push ]]; then
-        echo -e '\033[1;34m' # bold blue
+        echo -e '\033[1;34m'  # bold blue
     else
         echo -e '\033[1;37m'  # bold white
     fi
