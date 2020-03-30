@@ -19,6 +19,7 @@ git_status() {
     # S changes have been stashed
     # P local commits need to be pushed to the remote
     # ~ status timedout
+    # ~~ status still running
     
     local timeout_short=""
     local timeout_long=""
@@ -32,17 +33,34 @@ git_status() {
     
     # status="$($timeout_long git diff --no-ext-diff --quiet || if [ "$?" == "124" ]; then { nohup  git diff --no-ext-diff --quiet >/dev/null 2>&1 & } ;  skip="yes"; w="~"; else w="*"; fi)"
 
-    # could capture git status PID, check if it's still active, and not run another status until it's done
+    # Check if prior 'git status' is still running
+    GIT_STATUS_PID_FILE="/tmp/.${USER}_${PPID}_GIT_STATUS"
+    if [[ -r "$GIT_STATUS_PID_FILE" ]]; then
+        GIT_STATUS_PID=$(<$GIT_STATUS_PID_FILE)
+        kill -0 $GIT_STATUS_PID 2>/dev/null
+        if [[ $? -eq 0 ]]; then
+            echo "~~$GIT_STATUS_PID "
+            return 0
+        fi
+        rm $GIT_STATUS_PID_FILE
+    fi
+    
     status="$( \
 $timeout_long git status --porcelain 2>/dev/null || \
 if [ "$?" == "124" ]; then \
   { nohup git status --porcelain >/dev/null 2>&1 & } ; \
-  echo "~" ; \
+  export GIT_STATUS_PID=$!; \
+  echo "~$GIT_STATUS_PID" ; \
 fi \
 )"
     output=''
     if [[ $status =~ \~ ]]; then
-        output="$output~"
+        # could capture git status PID, check if it's still active, and not run another status until it's done
+        # output="$status"
+        GIT_STATUS_PID=${status#?}
+        output="~$GIT_STATUS_PID "
+        echo $GIT_STATUS_PID > /tmp/.${USER}_${PPID}_GIT_STATUS
+        # output="$output~"
     else
         [[ -n $(egrep '^[MADRC]' <<<"$status") ]] && output="$output+"
         [[ -n $(egrep '^.[MD]' <<<"$status") ]] && output="$output!"
@@ -91,7 +109,7 @@ git_prompt() {
         state=$(git_status)
         color=$(git_color $state)
         if [[ $state =~ \~ ]]; then
-            echo -e "$color[$state$branch]\033[00m"  # last bit resets color            
+            echo -e "$color[$state $branch]\033[00m"  # last bit resets color            
         else
             echo -e "$color[$branch$state]\033[00m"  # last bit resets color
         fi
