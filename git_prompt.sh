@@ -34,12 +34,12 @@ git_status() {
     # status="$($timeout_long git diff --no-ext-diff --quiet || if [ "$?" == "124" ]; then { nohup  git diff --no-ext-diff --quiet >/dev/null 2>&1 & } ;  skip="yes"; w="~"; else w="*"; fi)"
 
     # Check if prior 'git status' is still running
-    GIT_STATUS_PID_FILE="/tmp/.${USER}_${PPID}_GIT_STATUS"
+    GIT_STATUS_PID_FILE="/tmp/.${USER}_$$_GIT_STATUS"
     if [[ -r "$GIT_STATUS_PID_FILE" ]]; then
         GIT_STATUS_PID=$(<$GIT_STATUS_PID_FILE)
         kill -0 $GIT_STATUS_PID 2>/dev/null
         if [[ $? -eq 0 ]]; then
-            echo "~~$GIT_STATUS_PID "
+            echo "~~$GIT_STATUS_PID"
             return 0
         fi
         rm $GIT_STATUS_PID_FILE
@@ -59,7 +59,7 @@ fi \
         # output="$status"
         GIT_STATUS_PID=${status#?}
         output="~$GIT_STATUS_PID "
-        echo $GIT_STATUS_PID > /tmp/.${USER}_${PPID}_GIT_STATUS
+        echo $GIT_STATUS_PID > $GIT_STATUS_PID_FILE
         # output="$output~"
     else
         [[ -n $(egrep '^[MADRC]' <<<"$status") ]] && output="$output+"
