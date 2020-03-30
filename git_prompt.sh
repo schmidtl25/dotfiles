@@ -18,7 +18,8 @@ git_status() {
     # ? untracked files are present
     # S changes have been stashed
     # P local commits need to be pushed to the remote
-
+    # ~ status timedout
+    
     local timeout_short=""
     local timeout_long=""
     if command -v timeout > /dev/null; then
@@ -32,23 +33,24 @@ git_status() {
     # status="$($timeout_long git diff --no-ext-diff --quiet || if [ "$?" == "124" ]; then { nohup  git diff --no-ext-diff --quiet >/dev/null 2>&1 & } ;  skip="yes"; w="~"; else w="*"; fi)"
 
     # could capture git status PID, check if it's still active, and not run another status until it's done
-    status="\
-$($timeout_long git status --porcelain 2>/dev/null || \
+    status="$( \
+$timeout_long git status --porcelain 2>/dev/null || \
 if [ "$?" == "124" ]; then \
   { nohup git status --porcelain >/dev/null 2>&1 & } ; \
   echo "~" ; \
-fi)"
-    
+fi \
+)"
     output=''
-    [[ -n $(egrep '^~' <<<"$status") ]] && output="$output~"
-    if [[ ! $1 =~ '\~' ]]; then
+    if [[ $status =~ \~ ]]; then
+        output="$output~"
+    else
         [[ -n $(egrep '^[MADRC]' <<<"$status") ]] && output="$output+"
         [[ -n $(egrep '^.[MD]' <<<"$status") ]] && output="$output!"
         [[ -n $(egrep '^\?\?' <<<"$status") ]] && output="$output?"
         [[ -n $(git stash list) ]] && output="${output}S"
         [[ -n $(git log --branches --not --remotes) ]] && output="${output}P"
+        [[ -n $output ]] && output="|$output"  # separate from branch name
     fi
-    [[ -n $output ]] && output="|$output"  # separate from branch name
     echo $output
 }
 
@@ -88,7 +90,10 @@ git_prompt() {
     if [[ -n $branch ]]; then
         state=$(git_status)
         color=$(git_color $state)
-        # Now output the actual code to insert the branch and status
-        echo -e "$color[$branch$state]\033[00m"  # last bit resets color
+        if [[ $state =~ \~ ]]; then
+            echo -e "$color[$state$branch]\033[00m"  # last bit resets color            
+        else
+            echo -e "$color[$branch$state]\033[00m"  # last bit resets color
+        fi
     fi
 }
