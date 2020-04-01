@@ -28,11 +28,6 @@ git_status() {
         timeout_long="timeout 1s"
     fi
 
-    # status="$($timeout_long git status --porcelain 2>/dev/null)"
-    # status="$($timeout_long sleep 5 2>/dev/null)"
-    
-    # status="$($timeout_long git diff --no-ext-diff --quiet || if [ "$?" == "124" ]; then { nohup  git diff --no-ext-diff --quiet >/dev/null 2>&1 & } ;  skip="yes"; w="~"; else w="*"; fi)"
-
     # Check if prior 'git status' is still running
     GIT_STATUS_PID_FILE="/tmp/.${USER}_$$_GIT_STATUS"
     if [[ -r "$GIT_STATUS_PID_FILE" ]]; then
@@ -56,11 +51,9 @@ fi \
     output=''
     if [[ $status =~ \~ ]]; then
         # could capture git status PID, check if it's still active, and not run another status until it's done
-        # output="$status"
         GIT_STATUS_PID=${status#?}
         output="~$GIT_STATUS_PID "
         echo $GIT_STATUS_PID > $GIT_STATUS_PID_FILE
-        # output="$output~"
     else
         [[ -n $(egrep '^[MADRC]' <<<"$status") ]] && output="$output+"
         [[ -n $(egrep '^.[MD]' <<<"$status") ]] && output="$output!"
@@ -80,6 +73,7 @@ git_color() {
     # - Red if there are uncommitted changes with nothing staged
     # - Yellow if there are both staged and unstaged changes
     # - Blue if there are unpushed commits
+    # - Orange if 'git status' timed out
     timedout=$([[ $1 =~ \~ ]] && echo yes)
     staged=$([[ $1 =~ \+ ]] && echo yes)
     dirty=$([[ $1 =~ [!\?] ]] && echo yes)
