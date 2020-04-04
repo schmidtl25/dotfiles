@@ -1,4 +1,3 @@
-echo sourcing bash_profile
 # /etc/profile has been sourced for interactive-login shells
 
 #################################################################
