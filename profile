@@ -1,3 +1,4 @@
+echo sourcing profile
 if [ -r "$HOME/.profile.ibm" ]; then
     CWD=`pwd`
     PROFILE_IBM_PATH=$(dirname `readlink $HOME/.profile.ibm`)

@@ -23,9 +23,12 @@ git_status() {
     
     local timeout_short=""
     local timeout_long=""
+    GIT_STATUS_TIMEOUT_SHORT=${GIT_STATUS_TIMEOUT_SHORT:-1}
+    GIT_STATUS_TIMEOUT_LONG=${GIT_STATUS_TIMEOUT_LONG:-1}
+    
     if command -v timeout > /dev/null; then
-        timeout_short="timeout 1s"
-        timeout_long="timeout 1s"
+        timeout_short="timeout ${GIT_STATUS_TIMEOUT_SHORT}s"
+        timeout_long="timeout ${GIT_STATUS_TIMEOUT_LONG}s"
     fi
 
     # Check if prior 'git status' is still running

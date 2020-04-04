@@ -33,6 +33,9 @@ ggib() {
 #    PS1='[$USER@$MACHINENAME] $PWD $(git_prompt)
 # '
 
+rmgitlock() {
+  rm -f `git rev-parse --show-toplevel`/.git/index.lock
+}
 
 . ~/.git_prompt.sh
 export PS1='[\u@\h] \w $(git_prompt)\$\n '
