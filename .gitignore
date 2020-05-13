@@ -1,22 +1,21 @@
-# gitignore whitelist has been implemented
+# gitignore allowlist has been implemented
 #   everything is ignored by default
-#   use !<pattern> to include
+#   use !/<pattern> to include
 
 *
 !**/.gitignore
 
 # Allowing the following directories
-!bashrc.d/
-!emacs.d/
+!/bashrc.d/
+!/emacs.d/
 
 # Allowing the following files
-!bash_profile
-!bashrc
-!gitconfig
-!git_prompt.sh
-!git-prompt.sh
-!Makefile
-!profile
-!profile.schmidtl
-!tmux.conf
-!Xresources
+!/bash_profile
+!/bashrc
+!/gitconfig
+!/git_prompt_cache.sh
+!/Makefile
+!/profile
+!/profile.schmidtl
+!/tmux.conf
+!/Xresources
