@@ -1,5 +1,5 @@
 PREFIX=$(HOME)
-
+ 
 # Get all files from this repo
 ALL_FILES = $(wildcard *)
 BASHRC_FILES = $(wildcard bashrc.d/*.bashrc)

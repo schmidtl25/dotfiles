@@ -37,5 +37,6 @@ rmgitlock() {
   rm -f `git rev-parse --show-toplevel`/.git/index.lock
 }
 
-. ~/.git_prompt.sh
-export PS1='[\u@\h] \w $(git_prompt)\$\n '
+# . ~/.git_prompt.sh
+. ~/.git_prompt_cache.sh
+export PS1='[$USER@$HOSTNAME] \w $(git_prompt)\$\n '
