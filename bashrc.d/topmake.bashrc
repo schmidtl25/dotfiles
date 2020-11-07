@@ -1,8 +1,10 @@
 topmake() {
     local top_level=$(git rev-parse --show-toplevel 2> /dev/null)
-    [ $? -eq 0 ] && cd $top_level
+    [[ ! -z $top_level ]] && pushd $top_level > /dev/null
     make $@
-    return $?
+    local make_rc=$?
+    [[ ! -z $top_level ]] && popd > /dev/null
+    return $make_rc
 }
 
 # #!/bin/bash
