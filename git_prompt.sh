@@ -11,6 +11,8 @@ git_branch() {
 }
 
 git_status() {
+    echo "~"
+    return 0
     # Outputs a series of indicators based on the status of the
     # working directory:
     # + changes are staged and ready to commit
@@ -58,12 +60,14 @@ fi \
         output="~$GIT_STATUS_PID "
         echo $GIT_STATUS_PID > $GIT_STATUS_PID_FILE
     else
+
         [[ -n $(egrep '^[MADRC]' <<<"$status") ]] && output="$output+"
         [[ -n $(egrep '^.[MD]' <<<"$status") ]] && output="$output!"
         [[ -n $(egrep '^\?\?' <<<"$status") ]] && output="$output?"
         [[ -n $(git stash list) ]] && output="${output}S"
         [[ -n $(git log --branches --not --remotes) ]] && output="${output}P"
         [[ -n $output ]] && output="|$output"  # separate from branch name
+        echo "git_status_cached: status='$status' output='$output'" 1>&2
     fi
     echo $output
 }
@@ -98,6 +102,9 @@ git_color() {
 }
 
 git_prompt() {
+    local GIT_STATUS
+    local GIT_STATUS_PID
+
     # First, get the branch name...
     branch=$(git_branch)
     # Empty output? Then we're not in a Git repository, so bypass the rest
@@ -111,4 +118,11 @@ git_prompt() {
             echo -e "$color[$branch$state]\033[00m"  # last bit resets color
         fi
     fi
+#    if [[ $GIT_STATUS_PID -ne 0 ]]; then
+#        echo -e "pid$GIT_STATUS_PID"
+#    else
+#        echo -e "--"
+#    fi
 }
+
+echo "git_prompt is `git_prompt`"

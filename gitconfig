@@ -8,30 +8,66 @@
 	all = true
 	tags = true
 	recurse-submodules = on-demand
-[difftool]
-	path = /usr/bin/kompare
-	prompt = false
 [diff]
 	tool = tkdiff
         prompt = false
 	guitool = tkdiff
-# [alias]
-#        branch-prune = fetch -p && for branch in `git branch -vv | grep ': gone]' | gawk '{print $1}'`; do git branch -D $branch; done
+[difftool]
+	path = /usr/bin/kompare
+	prompt = false
+[alias]
+        alias = "!f() { RE=${1-*}; git config --get-regexp "^alias.${RE}$" ; }; f"
+        pullsm = "!git pull && git submodule update --init -j 3"
+        smup = submodule update --init -j 3
+	unstage = reset HEAD --
+        branch-prune = "!git fetch -p && git branch -d $(git branch -vv | awk '/: gone/ {print $1}')"
+
+        defaultbranch = "!f() { DEF_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); echo $DEF_BRANCH; }; f"
+
+        wtadd        = "!f() { DEF_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); git worktree add -b $1 ../$1 upstream/$DEF_BRANCH --no-track; }; f"
+
+# clone pcore.git using reference repo, requires git 2.25+
+        pcore-clone = "!f() { \
+                              SANDBOX=${1-pcore}; \
+                              REF_REPO=${REF_REPO-/afs/ThisCell/func/vlsi/eclipz/ct6/verif/p10d2/ref_repos/pHWChip/pcore-gitcache}; \
+                              echo REF_REPO=$REF_REPO; \
+                              git clone --dissociate --reference $REF_REPO git@github.ibm.com:phwchip/pcore.git $SANDBOX && \
+                              cd $SANDBOX && \
+                              git submodule update --init -j 3 --dissociate --reference $REF_REPO; \
+                            }; f"
 
 # [filter "indent"]
 # 	clean = indent
 # 	smudge = cat
 
 [core]
-	lintcheck = true
-        printlint = true
-	warningscheck = true
 	editor = emacs
+[hooks]
+	gccwarningscheck = true
+	lintcheck = true
+
+# pcore.git submodule nest_rtx
+[submodule "rtx/nest_rtx"]
+	ignore = dirty
+
+# LFS
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[hooks]
-	gccwarningscheck = true
-	lintcheck = true
+# Reduce number of concurrent LFS downloads due to AFS write bottleneck
+[lfs]
+	concurrenttransfers = 5
+# enable `git diff` on LFS tracked files
+[diff "lfs"]
+	textconv = cat
+
+[lfs "https://github.ibm.com/pHWDevOps/pcore.git/info/lfs"]
+	locksverify = true
+[lfs "https://github.ibm.com/phwdevops/pcore.git/info/lfs"]
+	locksverify = true
+[lfs "https://github.ibm.com/schmidtl/pcore.git/info/lfs"]
+	locksverify = true
+[lfs "https://github.ibm.com/p11devops/p11spiel.git/info/lfs"]
+	locksverify = true

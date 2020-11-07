@@ -28,15 +28,17 @@ ggib() {
   git grep -in "$1" | while IFS=: read i j k; do git blame -f -L $j,$j $i; done
 }
 
-
 # import ksh/profile git_prompt and integrate into PS1
 #    PS1='[$USER@$MACHINENAME] $PWD $(git_prompt)
 # '
 
 rmgitlock() {
-  rm -f `git rev-parse --show-toplevel`/.git/index.lock
+  find $(git rev-parse --show-toplevel) -name "index.lock" -delete
 }
 
-# . ~/.git_prompt.sh
-. ~/.git_prompt_cache.sh
-export PS1='[$USER@$HOSTNAME] \w $(git_prompt)\$\n '
+if [[ $(uname) =~ AIX ]]; then
+    export PS1='[$USER@$HOSTNAME] \w \$\n '
+else
+    . ~/.git_prompt_cache.sh
+    export PS1='[$USER@$HOSTNAME] \w $(git_prompt)\$\n '
+fi
