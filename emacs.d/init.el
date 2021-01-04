@@ -3,6 +3,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Jan24-20 attempt to fix copy-paste with xterm problem
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (setq x-select-enable-primary t)  ; stops killing/yanking interacting with primary X11 selection
 (setq x-select-enable-clipboard t)  ; makes killing/yanking interact with clipboard X11 selection
 (global-set-key (kbd "<mouse-2>") 'clipboard-yank)
@@ -108,3 +115,15 @@ and set the focus back to Emacs frame"
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+(require 'tracefile-mode)
+(add-to-list 'auto-mode-alist '("\\.trace\\'" . tracefile-mode))
+(add-to-list 'auto-mode-alist '("\\.trace.gz\\'" . tracefile-mode))
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
+
+(add-to-list 'auto-mode-alist '("\\.groovy\\'" . java-mode))

@@ -2,4 +2,6 @@
 #   everything is ignored by default
 #   use !<pattern> to include
 
-!*.el
+!/lisp/
+
+!**/*.el

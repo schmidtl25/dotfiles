@@ -12,6 +12,21 @@
 	tool = tkdiff
         prompt = false
 	guitool = tkdiff
+[diff "bz2"]
+  binary = true
+  textconv = /bin/bzcat
+[diff "gzip"]
+  binary = true
+  textconv = /bin/zcat
+[diff "tar"]
+  binary = true
+  textconv = tar --to-stdout -xf 
+[diff "tar-bz2"]
+  binary = true
+  textconv = tar --to-stdout -xjf
+[diff "zip"]
+  binary = true
+  textconv = unzip -p
 [difftool]
 	path = /usr/bin/kompare
 	prompt = false
