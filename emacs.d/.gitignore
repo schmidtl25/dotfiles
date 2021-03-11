@@ -3,5 +3,6 @@
 #   use !<pattern> to include
 
 !/lisp/
+!/evil/
 
 !**/*.el

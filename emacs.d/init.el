@@ -127,3 +127,9 @@ and set the focus back to Emacs frame"
 (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
 
 (add-to-list 'auto-mode-alist '("\\.groovy\\'" . java-mode))
+
+(add-hook 'prog-mode-hook 'linum-mode)
+
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 1)

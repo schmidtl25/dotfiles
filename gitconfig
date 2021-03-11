@@ -9,9 +9,11 @@
 	tags = true
 	recurse-submodules = on-demand
 [diff]
-	tool = tkdiff
+	tool = meld
+        #	tool = tkdiff
         prompt = false
-	guitool = tkdiff
+        guitool = meld
+#	guitool = tkdiff
 [diff "bz2"]
   binary = true
   textconv = /bin/bzcat
@@ -86,3 +88,5 @@
 	locksverify = true
 [lfs "https://github.ibm.com/p11devops/p11spiel.git/info/lfs"]
 	locksverify = true
+[help]
+	autocorrect = 1
